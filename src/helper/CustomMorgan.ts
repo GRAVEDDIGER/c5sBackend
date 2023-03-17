@@ -1,6 +1,10 @@
+import {  TokenIndexer } from 'morgan'
 import logger from './LoggerConfig.js'
 
-export function morganWinston (tokens, req, res) {
+export function morganWinston (
+  tokens:TokenIndexer, 
+  req: any, 
+  res:any):any {
   const objeto = [
     tokens.method(req, res),
     tokens.url(req, res),

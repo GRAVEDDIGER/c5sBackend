@@ -6,25 +6,25 @@ if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir)
 export const logger = {
   debug: winston.createLogger({
     level: 'debug',
-    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'e-Commerce Backend Debuger' }), winston.format.prettyPrint()),
+    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'C5S Backend Service' }), winston.format.prettyPrint()),
     transports: [new winston.transports.Console({ format: winston.format.combine(winston.format.colorize(), winston.format.simple()) }), new winston.transports.File({ filename: path.join(logsDir, '/debug.log') })]
 
   }),
   info: winston.createLogger({
     level: 'info',
-    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'e-Commerce Backend Debuger' }), winston.format.prettyPrint()),
+    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'C5S Backend Service' }), winston.format.prettyPrint()),
     transports: [new winston.transports.Console({ format: winston.format.combine(winston.format.colorize(), winston.format.simple()) }), new winston.transports.File({ filename: path.join(logsDir, '/info.log') })]
 
   }),
   warning: winston.createLogger({
     level: 'warn',
-    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'e-Commerce Backend Debuger' }), winston.format.prettyPrint()),
+    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'C5S Backend Service' }), winston.format.prettyPrint()),
     transports: [new winston.transports.Console({ format: winston.format.combine(winston.format.colorize(), winston.format.simple()) }), new winston.transports.File({ filename: path.join(logsDir, '/warning.log') })]
 
   }),
   error: winston.createLogger({
     level: 'error',
-    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'e-Commerce Backend Debuger' }), winston.format.prettyPrint()),
+    format: winston.format.combine(winston.format.timestamp(), winston.format.label({ label: 'C5S Backend Service' }), winston.format.prettyPrint()),
     transports: [new winston.transports.Console({ format: winston.format.combine(winston.format.colorize(), winston.format.simple()) }), new winston.transports.File({ filename: path.join(logsDir, '/error.log') })]
 
   })

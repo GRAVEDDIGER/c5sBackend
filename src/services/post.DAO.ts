@@ -3,7 +3,7 @@ import {PostModel} from "../models/post.model"
 import logger from "../helper/LoggerConfig"
 export class PostDAO implements IPostsDAO {
     constructor(
-        model= PostModel,
+        model:Model<any>= PostModel,
         protected errorHanlder=(error:unknown):IError=>{
             let newError:IError ={
                 code:0,
@@ -48,11 +48,11 @@ export class PostDAO implements IPostsDAO {
             logger.error.error({level:"error",message:"getAllPosts",error})
         } 
         },
-        public getPostById =async  (id:string):Promise<any|unknown> =>{
+        public getPostById =async  (id:string,user:any):Promise<any|unknown> =>{
            
 
             try{
-                const response = await model.findById(id)
+                const response = await model.findOneAndUpdate({_id:id},user)
                 logger.debug.debug({level: "error",message:"findById",response})
                 return new DataResponse(true,200,"Query Succeded",null,response)
             }catch
